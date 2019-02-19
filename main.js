@@ -28,8 +28,12 @@ screenshotButton.onclick = video.onclick = function() {
 
 	// Other browsers will fall back to image/png
 	const img = document.createElement('img');
+	const link = document.createElement('a');
 	img.src = canvas.toDataURL('image/webp');
-	picturesGallery.appendChild(img);
+	link.href = canvas.toDataURL('image/webp');
+	link.target = 'blank';
+	picturesGallery.appendChild(link);
+	link.appendChild(img);
 
 	// Update thumbnail
 	thumbnail.src = canvas.toDataURL('image/webp');
