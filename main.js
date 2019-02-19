@@ -24,7 +24,9 @@ screenshotButton.onclick = video.onclick = function() {
 	canvas.width = video.videoWidth;
 	canvas.height = video.videoHeight;
 	canvas.getContext('2d').drawImage(video, 0, 0);
+
 	// Other browsers will fall back to image/png
+	const img = document.createElement('img');
 	img.src = canvas.toDataURL('image/webp');
 };
 
@@ -35,6 +37,7 @@ function handleSuccess(stream) {
 	video.srcObject = stream;
 	finishButton.addEventListener('click', function () {
 		stopStream(stream);
+		modalCaptureVideo.style.display = 'none';
 	});
 }
 
