@@ -28,12 +28,10 @@ captureVideoButton.onclick = function() {
 };*/
 
 function handleSuccess(stream) {
-	//alert('success');
-	//alert(video);
-	alert(stream);
-	/*modalCaptureVideo.style.display = 'block';
+	alert('success');
+	modalCaptureVideo.style.display = 'block';
 	screenshotButton.disabled = false;
-	video.srcObject = stream;*/
+	video.srcObject = stream;
 }
 
 function handleError(error) {
