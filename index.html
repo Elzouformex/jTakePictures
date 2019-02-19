@@ -1,67 +1,41 @@
 <!doctype html>
 <header>
-  <style>video {
-  width:500px;
-  height:500px;
-}
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Take pictures</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-#screenshot img {
-  width:500px;
-  height:500px;
-    }</style>
+  <!--[if lt IE 9]>
+  <script>
+    document.createElement('header');
+    document.createElement('main');
+    document.createElement('nav');
+    document.createElement('section');
+    document.createElement('footer');
+  </script>
+  <![endif]-->
+
+  <link rel="stylesheet" href="main.css">
 </header>
 <body>
-<p>TOTOTOTO TEST</p>
-<div id="screenshot">
-<video class="videostream" autoplay=""></video>
-<img id="screenshot-img">
-<p><button class="capture-button">Capture video</button>
-</p><p><button id="screenshot-button" disabled="">Take screenshot</button></p>
-</div>
+  <div id="picturesContainer">
+    <button id="capture-button">Prendre des photos</button>
 
-<script>
-  const constraints = {
-   video: { 
-   	facingMode: { 
-    	exact: "environment" 
-    } 
-   }
-};
+    <div id="picturesGallery">
+      <!-- TODO populate with base64 images -->
+    </div>
+  </div>
 
-const captureVideoButton =
-      document.querySelector('#screenshot .capture-button');
-const screenshotButton = document.querySelector('#screenshot-button');
-const img = document.querySelector('#screenshot img');
-const video = document.querySelector('#screenshot video');
+  <div id="modal-takePictures">
+    <video id="videostream" autoplay=""></video>
 
-const canvas = document.createElement('canvas');
+    <div id="videoToolbar">
+      <button id="screenshot-button" disabled="">Photo !</button>
+      <button id="finish-button">Terminer</button>
+    </div>
+  </div>
 
-captureVideoButton.onclick = function() {
-  alert('click');
-  navigator.mediaDevices.getUserMedia(constraints).
-  then(handleSuccess).catch(handleError);
-};
-
-screenshotButton.onclick = video.onclick = function() {
-  canvas.width = video.videoWidth;
-  canvas.height = video.videoHeight;
-  canvas.getContext('2d').drawImage(video, 0, 0);
-  // Other browsers will fall back to image/png
-  img.src = canvas.toDataURL('image/webp');
-};
-
-function handleSuccess(stream) {
-  alert('success');
-  screenshotButton.disabled = false;
-  video.srcObject = stream;
-}
-
-function handleError(error) {
-  alert('error');
-  alert(error.message);
-  console.error('navigator.getUserMedia error: ', error.message);
-}
-</script>
-
+  <script src="main.js"></script>
 </body>
 
