@@ -15,7 +15,6 @@ const video = document.querySelector('#modal-takePictures video');
 const canvas = document.createElement('canvas');
 
 captureVideoButton.onclick = function() {
-	alert('click');
 	navigator.mediaDevices.getUserMedia(constraints).
 	then(handleSuccess).catch(handleError);
 };
@@ -29,12 +28,12 @@ captureVideoButton.onclick = function() {
 };*/
 
 function handleSuccess(stream) {
-	alert('success');
-	alert(video);
+	//alert('success');
+	//alert(video);
 	alert(stream);
-	modalCaptureVideo.style.display = 'block';
+	/*modalCaptureVideo.style.display = 'block';
 	screenshotButton.disabled = false;
-	video.srcObject = stream;
+	video.srcObject = stream;*/
 }
 
 function handleError(error) {
