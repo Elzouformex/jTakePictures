@@ -30,7 +30,7 @@ h1 {
 	top: 0;
 	left: 0;
 	background: #000;
-	/*display:none;*/
+	display:none;
 }
 
 #modal-takePictures #videoToolbar {
@@ -71,7 +71,7 @@ h1 {
 	border: none;
 	font-size: 0;
 	position: absolute;
-	left: 50%;
+	left: calc(50% - 30px);
 	background: #ffffff;
 	top: 0;
 }
