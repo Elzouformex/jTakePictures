@@ -10,7 +10,7 @@ const captureVideoButton = document.querySelector('#capture-button');
 const modalCaptureVideo = document.querySelector('#modal-takePictures');
 const screenshotButton = document.querySelector('#screenshot-button');
 //const img = document.querySelector('#screenshot img');
-const video = document.querySelector('#screenshot video');
+const video = document.querySelector('#videostream');
 
 const canvas = document.createElement('canvas');
 
