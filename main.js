@@ -27,7 +27,10 @@ screenshotButton.onclick = video.onclick = function() {
 
 	// Other browsers will fall back to image/png
 	const img = document.createElement('img');
+	alert(img);
 	img.src = canvas.toDataURL('image/webp');
+	alert(img);
+	alert(img.src);
 };
 
 function handleSuccess(stream) {
