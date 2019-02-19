@@ -10,6 +10,7 @@ const captureVideoButton = document.querySelector('#capture-button');
 const modalCaptureVideo = document.querySelector('#modal-takePictures');
 const screenshotButton = document.querySelector('#screenshot-button');
 const finishButton = document.querySelector('#finish-button');
+const thumbnail = document.querySelector('#videoToolbar img');
 const picturesGallery = document.querySelector('#picturesGallery');
 const video = document.querySelector('#modal-takePictures video');
 
@@ -29,6 +30,10 @@ screenshotButton.onclick = video.onclick = function() {
 	const img = document.createElement('img');
 	img.src = canvas.toDataURL('image/webp');
 	picturesGallery.appendChild(img);
+
+	// Update thumbnail
+	thumbnail.src = canvas.toDataURL('image/webp');
+	thumbnail.style.display = 'inline';
 };
 
 function handleSuccess(stream) {
@@ -38,6 +43,7 @@ function handleSuccess(stream) {
 	finishButton.addEventListener('click', function () {
 		stopStream(stream);
 		modalCaptureVideo.style.display = 'none';
+		thumbnail.style.display = 'none';
 	});
 }
 
