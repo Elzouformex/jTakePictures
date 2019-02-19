@@ -1,9 +1,10 @@
 const constraints = {
 	video: {
-		width: 1280,
-		height: 720,
-		facingMode: {
-			exact: "environment"
+		audio: false,
+		video: {
+			width: { ideal: 1280 },
+			height: { ideal: 1024 },
+			facingMode: "environment"
 		}
 	}
 };
