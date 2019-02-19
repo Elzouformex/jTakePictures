@@ -10,7 +10,7 @@ const captureVideoButton = document.querySelector('#capture-button');
 const modalCaptureVideo = document.querySelector('#modal-takePictures');
 const screenshotButton = document.querySelector('#screenshot-button');
 //const img = document.querySelector('#screenshot img');
-const video = document.querySelector('#videostream');
+const video = document.querySelector('#modal-takePictures video');
 
 const canvas = document.createElement('canvas');
 
@@ -30,6 +30,8 @@ captureVideoButton.onclick = function() {
 
 function handleSuccess(stream) {
 	alert('success');
+	alert(video);
+	alert(stream);
 	modalCaptureVideo.style.display = 'block';
 	screenshotButton.disabled = false;
 	video.srcObject = stream;
