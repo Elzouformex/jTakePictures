@@ -1,7 +1,7 @@
 const constraints = {
 	video: {
-		width: 1280,
-		height:720,
+		width: 1024,
+		height:768,
 		facingMode: {
 			exact: "environment"
 		}
@@ -26,9 +26,6 @@ captureVideoButton.onclick = function() {
 screenshotButton.onclick = video.onclick = function() {
 	canvas.width = video.videoWidth;
 	canvas.height = video.videoHeight;
-	alert(JSON.stringify(video));
-	alert(video.videoWidth);
-	alert(video.videoHeight);
 	canvas.getContext('2d').drawImage(video, 0, 0);
 
 	// Other browsers will fall back to image/png

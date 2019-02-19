@@ -1,5 +1,4 @@
 #picturesContainer {
-	width:800px;
 	margin:0 auto;
 	text-align:center;
 	padding:40px 0;
@@ -73,7 +72,7 @@ h1 {
 	position: absolute;
 	left: calc(50% - 30px);
 	background: #ffffff;
-	top: 0;
+	top: 10px;
 }
 
 #screenshot-button:after {
