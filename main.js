@@ -10,7 +10,7 @@ const captureVideoButton = document.querySelector('#capture-button');
 const modalCaptureVideo = document.querySelector('#modal-takePictures');
 const screenshotButton = document.querySelector('#screenshot-button');
 const finishButton = document.querySelector('#finish-button');
-//const img = document.querySelector('#screenshot img');
+const picturesGallery = document.querySelector('#picturesGallery');
 const video = document.querySelector('#modal-takePictures video');
 
 const canvas = document.createElement('canvas');
@@ -27,14 +27,11 @@ screenshotButton.onclick = video.onclick = function() {
 
 	// Other browsers will fall back to image/png
 	const img = document.createElement('img');
-	alert(img);
 	img.src = canvas.toDataURL('image/webp');
-	alert(img);
-	alert(img.src);
+	picturesGallery.appendChild(img);
 };
 
 function handleSuccess(stream) {
-	alert('success');
 	modalCaptureVideo.style.display = 'block';
 	screenshotButton.disabled = false;
 	video.srcObject = stream;
@@ -51,7 +48,6 @@ function handleError(error) {
 }
 
 function stopStream(stream) {
-	alert('stop called');
 	stream.getVideoTracks().forEach(function (track) {
 		track.stop();
 	});
