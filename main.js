@@ -16,6 +16,7 @@ const finishButton = document.querySelector('#finish-button');
 const thumbnail = document.querySelector('#videoToolbar img');
 const picturesGallery = document.querySelector('#picturesGallery');
 const video = document.querySelector('#modal-takePictures video');
+const element =  document.querySelector('#blankScreen');
 
 const canvas = document.createElement('canvas');
 
@@ -24,22 +25,28 @@ captureVideoButton.onclick = function() {
 	then(handleSuccess).catch(handleError);
 };
 
-screenshotButton.onclick = video.onclick = function() {
+screenshotButton.onclick = function() {
 	canvas.width = video.videoWidth;
 	canvas.height = video.videoHeight;
 	canvas.getContext('2d').drawImage(video, 0, 0);
 
-	// Other browsers will fall back to image/png
 	const img = document.createElement('img');
 	const link = document.createElement('a');
-	img.src = canvas.toDataURL('image/webp');
-	link.href = canvas.toDataURL('image/webp');
+	const base64 = canvas.toDataURL('image/webp');	// Other browsers will fall back to image/png
+
+	// Display blank screen
+	element.classList.add('animated', 'fadeIn');
+	element.classList.add('animated', 'fadeOut');
+
+	// Add picture to gallery
+	img.src = base64;
+	link.href = base64;
 	link.target = 'blank';
 	picturesGallery.appendChild(link);
 	link.appendChild(img);
 
 	// Update thumbnail
-	thumbnail.src = canvas.toDataURL('image/webp');
+	thumbnail.src = base64;
 	thumbnail.style.display = 'inline';
 };
 
