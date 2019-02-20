@@ -47,6 +47,7 @@ screenshotButton.onclick = function() {
 	element.style.display = 'block';
 	element.classList.add('animated', 'fadeIn');
 	element.classList.add('animated', 'fadeOut');
+	element.style.display = 'none';
 
 	// Add picture to gallery
 	img.src = base64;
