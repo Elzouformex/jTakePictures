@@ -20,6 +20,15 @@ const element =  document.querySelector('#blankScreen');
 
 const canvas = document.createElement('canvas');
 
+/*captureVideoButton.onclick = function() {
+	modalCaptureVideo.style.display = 'block';
+	screenshotButton.disabled = false;
+
+	element.style.display = 'block';
+	element.classList.add('animated', 'fadeIn');
+	element.classList.add('animated', 'fadeOut');
+};*/
+
 captureVideoButton.onclick = function() {
 	navigator.mediaDevices.getUserMedia(constraints).
 	then(handleSuccess).catch(handleError);
@@ -35,6 +44,7 @@ screenshotButton.onclick = function() {
 	const base64 = canvas.toDataURL('image/webp');	// Other browsers will fall back to image/png
 
 	// Display blank screen
+	element.style.display = 'block';
 	element.classList.add('animated', 'fadeIn');
 	element.classList.add('animated', 'fadeOut');
 
