@@ -16,17 +16,13 @@ const finishButton = document.querySelector('#finish-button');
 const thumbnail = document.querySelector('#videoToolbar img');
 const picturesGallery = document.querySelector('#picturesGallery');
 const video = document.querySelector('#modal-takePictures video');
-const element =  document.querySelector('#blankScreen');
+const blankScreen =  document.querySelector('#blankScreen');
 
 const canvas = document.createElement('canvas');
 
 /*captureVideoButton.onclick = function() {
 	modalCaptureVideo.style.display = 'block';
 	screenshotButton.disabled = false;
-
-	element.style.display = 'block';
-	element.classList.add('animated', 'fadeIn');
-	element.classList.add('animated', 'fadeOut');
 };*/
 
 captureVideoButton.onclick = function() {
@@ -44,10 +40,18 @@ screenshotButton.onclick = function() {
 	const base64 = canvas.toDataURL('image/webp');	// Other browsers will fall back to image/png
 
 	// Display blank screen
-	element.style.display = 'block';
-	element.classList.add('animated', 'fadeIn');
-	element.classList.add('animated', 'fadeOut');
-	element.style.display = 'none';
+	blankScreen.style.display = 'block';
+	blankScreen.classList.add('animated', 'fadeIn');
+
+	setTimeout(function () {
+		blankScreen.classList.remove('animated', 'fadeIn');
+		blankScreen.classList.add('animated', 'fadeOut');
+	}, 200);
+
+	setTimeout(function () {
+		blankScreen.classList.remove('animated', 'fadeOut');
+		blankScreen.style.display = 'none';
+	}, 800);
 
 	// Add picture to gallery
 	img.src = base64;
